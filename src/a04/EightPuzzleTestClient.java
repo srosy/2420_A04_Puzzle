@@ -21,6 +21,7 @@ public class EightPuzzleTestClient {
 
 		// create initial board from file
 		In in = new In(args[0]);
+		// In in = new In("src/puzzle-unsolvable.txt");
 		int N = in.readInt();
 		int[][] blocks = new int[N][N];
 		for (int i = 0; i < N; i++)

@@ -10,12 +10,11 @@ package a04;
 import java.util.Arrays;
 import java.util.Stack;
 
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
  * Class Board creates a 1d or 2d board and implements methods used to check for
- * neighboring boards, manhattan distance, and hamming misplaced blocks.
+ * neighboring boards, Manhattan distance, and Hamming misplaced blocks.
  * 
  * @author SpencerR
  *
@@ -57,7 +56,7 @@ public class Board {
 	 * Determines the number of misplaced blocks from the ideal position of each
 	 * block.
 	 * 
-	 * @return
+	 * @return int
 	 */
 	public int hamming() {
 		int numMisplaced = 0; // hamming
@@ -73,7 +72,7 @@ public class Board {
 	/**
 	 * Returns a sum of the Manhattan distances between the blocks and the goal.
 	 * 
-	 * @return
+	 * @return int
 	 */
 	public int manhattan() {
 		int sum = 0;
@@ -90,7 +89,7 @@ public class Board {
 	/**
 	 * Returns true if the positions match the end goal board positions.
 	 * 
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isGoal() {
 		for (int i = 0; i < n * n - 2; i++) {
@@ -132,7 +131,7 @@ public class Board {
 	/**
 	 * Creates a board stack for all neighboring boards.
 	 * 
-	 * @return
+	 * @return Iterable<Board>
 	 */
 	public Iterable<Board> neighbors() {
 		Stack<Board> boardStack = new Stack<Board>();
@@ -164,19 +163,10 @@ public class Board {
 		return boardStack;
 	}
 
-	// // is the initial board solvable?
-	// public boolean isSolvable() {
-	// if (pq.min().b.equals(completed)) {
-	// return true;
-	// }
-	// if (pqDuplicate.min().b.equals(completed)) {
-	// return false;
-	// }
-	// return false;
-	// }
-
 	/**
 	 * Returns a string representation of this board.
+	 * 
+	 * @return String
 	 */
 	public String toString() {
 		StringBuilder s = new StringBuilder();
@@ -206,7 +196,7 @@ public class Board {
 	 * Returns a columns int from position % board.
 	 * 
 	 * @param p
-	 * @return
+	 * @return int
 	 */
 	private int col(int p) {
 		if (p % n == 0)
@@ -217,7 +207,7 @@ public class Board {
 	/**
 	 * Returns a Board by exchanging any pair of blocks.
 	 * 
-	 * @return
+	 * @return Board
 	 */
 	protected Board copy() {
 		boolean canSwap = false;
@@ -349,16 +339,8 @@ public class Board {
 	 */
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		In in = new In(args[0]);
-		int n = in.readInt();
-		// In in = new In("src/puzzle00.txt");
-		// int n = 2;
-		int[][] positions = new int[n][n];
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < n; j++)
-				positions[i][j] = in.readInt();
-		// positions[i][j] = n;
-		Board b = new Board(positions);
+		String[] test = { "src/puzzle04.txt" };
+		EightPuzzleTestClient.main(test);
 	}
 
 }
